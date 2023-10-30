@@ -40,5 +40,7 @@ public class Movement : MonoBehaviour
         targetVelocity = new Vector2(_inputDirection.x * MovementSpeed, _inputDirection.y * MovementSpeed); //movement direction
 
         _rigidBody.velocity = Vector2.SmoothDamp(_rigidBody.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing); //decrease speed
+
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, targetVelocity); //movement based on wsad
     }
 }
