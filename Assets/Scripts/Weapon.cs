@@ -7,54 +7,20 @@ public class Weapon : MonoBehaviour
 
     public GameObject Projectile; //Weapon bullet
     public Transform SpawnPos; //Weapon start position
-    public float Interval = 0.1f; //fire rate
+    public Cooldown AutoFireShootInterval; //Weapon rate of fire (tied with Cooldown script)
 
-    private float ShotFiredSingle = 0f;
-    private float _timer = 0f;
-    private bool _canShoot = true;
 
-    public enum FireModes //weapon fire modes
-    {
-        Auto,
-        SingleFire,
-        BurstFire
-    }
-
-    public FireModes FireMode;
-
-    // Update is called once per frame
     void Update()
     {
+        if (AutoFireShootInterval.CurrentProgress != Cooldown.Progress.Finished) //if weapon is not finish shooting, return
+            return;
 
-        switch (FireMode)
-        {
-            case FireModes.Auto: //full auto uses this
-                if (_timer < Interval) 
-                {
-                    _timer += Time.deltaTime;
-                    _canShoot = false;
-                    return;
-                }
-                break;
-
-            case FireModes.SingleFire: //single fire only shoot when left-click
-                if (ShotFiredSingle < Interval) 
-                {
-                    ShotFiredSingle += Time.deltaTime;
-                    _canShoot = true;
-                    return;
-                }
-                break;
-        }
-
-        ShotFiredSingle = 0;
-        _timer = 0f;
-        _canShoot = true;
+        AutoFireShootInterval.CurrentProgress = Cooldown.Progress.Ready; //if weapon is finish shooting, ready to fire next time user shoots.
     }
 
     public void Shoot()
     {
-        if(Projectile == null) //DEBUG if projectile is missing
+        if (Projectile == null) //DEBUG if projectile is missing
         {
             Debug.LogWarning("Missing Porjectile Prefab");
             return;
@@ -66,9 +32,12 @@ public class Weapon : MonoBehaviour
             return;
         }
 
-        if (!_canShoot) //if player cant shoot, do nothing
+
+        if (AutoFireShootInterval.CurrentProgress != Cooldown.Progress.Ready)
             return;
 
-        GameObject.Instantiate(Projectile, SpawnPos.position, SpawnPos.rotation); //The projectile properties (shoot position and direction)
+        GameObject bullet = GameObject.Instantiate(Projectile, SpawnPos.position, SpawnPos.rotation); //The projectile properties (shoot position and direction)
+
+        AutoFireShootInterval.StartCooldown();
     }
 }

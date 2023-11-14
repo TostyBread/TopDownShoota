@@ -8,38 +8,38 @@ public class Projectile : MonoBehaviour
     public float Damage = 1f; //bullet damage
     public float Speed = 100f; //bullet speed
     public float PushForce = 50f; //knockback distance
-    public float lifeTime = 1f; //bullet lifetime before despawn
-
+    public Cooldown BulletLife; //bullet lifetime before despawn
+    
     public LayerMask TargetLayerMask;
 
     private Rigidbody2D _rigidbody;
-    private float _timer = 0f;
-
+    private DamageOnTouch _damageOnTouch;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-
-        if (_rigidbody == null)
-            return;
-
         _rigidbody.AddRelativeForce(new Vector2(0f, Speed));
+
+        if (_damageOnTouch != null)
+            _damageOnTouch.OnHit += Die;
+
+        BulletLife.StartCooldown(); //everytime bullet spawns, the timer is tied with it
     }
 
     void Update()
     {
-        if (_timer < lifeTime) //When bullet timer runs out
-        {
-            _timer += Time.deltaTime;
-            return;
-        }
-
-        Die();
+        if (BulletLife.CurrentProgress == Cooldown.Progress.Finished) //if bulletlife is finsied, then destroy itself
+            Die();
     }
 
 
     protected virtual void Die() //bullet destroy itself
     {
+        //unsubscribing
+        if (_damageOnTouch != null)
+            _damageOnTouch.OnHit -= Die;
+
+        BulletLife.StopCooldown();
         Destroy(gameObject);
     }
 }
