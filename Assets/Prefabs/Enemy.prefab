@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2021651895205010027}
   - component: {fileID: 4122867762523397639}
   - component: {fileID: 7730612520697427511}
+  - component: {fileID: 3733430660015758989}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -121,6 +122,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 3
   Target: {fileID: 0}
+--- !u!114 &3733430660015758989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2449275477550836665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c29d911e64005a4984d3b9270142dec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 10
+  Invulnerable:
+    CurrentProgress: 0
+    Duration: 0
 --- !u!1 &3535717563236051367
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 2786900920382059692}
   - {fileID: 4968877918816111371}
-  - {fileID: 477528270396340582}
+  - {fileID: 4749125286020783389}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4854472256502992464
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cdfc1e224195b943b8d8b5777bb5fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentWeapon: {fileID: 1883092593567637859}
+  CurrentWeapon: {fileID: 6731434052679795992}
   GunPosition: {fileID: 4968877918816111371}
 --- !u!1 &6381442574288230211
 GameObject:
@@ -162,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 6381442574288230211}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 0.4, z: 0.03}
+  m_LocalPosition: {x: 0.03, y: 0.94, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,7 +252,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &3787589200606683139
+--- !u!1001 &8347691739937653880
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -262,23 +262,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1714175127483167060, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
       propertyPath: m_Name
-      value: SMG
-      objectReference: {fileID: 0}
-    - target: {fileID: 3364803496695087456, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
-      propertyPath: SpawnPos
-      value: 
-      objectReference: {fileID: 9187693547355059477}
-    - target: {fileID: 3364803496695087456, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
-      propertyPath: AutoFireShootInterval.Duration
-      value: 0.3
+      value: Squirt gun
       objectReference: {fileID: 0}
     - target: {fileID: 3616598454344243557, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.96
+      value: -3.11
       objectReference: {fileID: 0}
     - target: {fileID: 3616598454344243557, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.52
+      value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 3616598454344243557, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -290,15 +282,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3616598454344243557, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3616598454344243557, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3616598454344243557, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3616598454344243557, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -317,15 +309,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
---- !u!4 &477528270396340582 stripped
+--- !u!4 &4749125286020783389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3616598454344243557, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
-  m_PrefabInstance: {fileID: 3787589200606683139}
+  m_PrefabInstance: {fileID: 8347691739937653880}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1883092593567637859 stripped
+--- !u!114 &6731434052679795992 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3364803496695087456, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
-  m_PrefabInstance: {fileID: 3787589200606683139}
+  m_PrefabInstance: {fileID: 8347691739937653880}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -333,8 +325,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bd678ebd6fb4744baf453c81846bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &9187693547355059477 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5409112140059202838, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
-  m_PrefabInstance: {fileID: 3787589200606683139}
-  m_PrefabAsset: {fileID: 0}

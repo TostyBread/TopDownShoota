@@ -11,6 +11,11 @@ public class Movement : MonoBehaviour
     protected Vector2 _inputDirection;
     public float MovementSpeed = 10f; //movement speed
 
+    protected WeaponHand _weaponHandler;
+    protected bool _isMoving = false;
+
+    protected Vector2 _targetVelocity = Vector2.zero; // for aiming controls
+
     Rigidbody2D _rigidBody; //player body
     Collider2D _collider2D; //player collider
 
@@ -19,15 +24,22 @@ public class Movement : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         _collider2D = GetComponent<Collider2D>();
+        _weaponHandler = GetComponent<WeaponHand>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        HandleMovement();
-        HandleInput();
+        HandleMovement(); //movement controls
+        HandleInput(); //key input controls
+        HandleRotation(); //rotation (aiming) controls
     }
+    protected virtual void HandleRotation()
+    {
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, (_targetVelocity)); //movement based on wsad
+    }
+
     protected virtual void HandleInput()
     {
     }
@@ -37,10 +49,13 @@ public class Movement : MonoBehaviour
             return;
 
         Vector2 targetVelocity = Vector2.zero;
+
         targetVelocity = new Vector2(_inputDirection.x * MovementSpeed, _inputDirection.y * MovementSpeed); //movement direction
 
         _rigidBody.velocity = Vector2.SmoothDamp(_rigidBody.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing); //decrease speed
 
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, targetVelocity); //movement based on wsad
+        _isMoving = targetVelocity.x != 0 || targetVelocity.y != 0;
+
+        _targetVelocity = targetVelocity;
     }
 }

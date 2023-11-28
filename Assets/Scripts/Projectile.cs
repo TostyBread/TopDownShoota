@@ -5,9 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
 
-    public float Damage = 1f; //bullet damage
     public float Speed = 100f; //bullet speed
-    public float PushForce = 50f; //knockback distance
     public Cooldown BulletLife; //bullet lifetime before despawn
     
     public LayerMask TargetLayerMask;
@@ -19,7 +17,9 @@ public class Projectile : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _rigidbody.AddRelativeForce(new Vector2(0f, Speed));
+        _damageOnTouch = GetComponent<DamageOnTouch>();
 
+        // subscribing
         if (_damageOnTouch != null)
             _damageOnTouch.OnHit += Die;
 
@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour
 
     protected virtual void Die() //bullet destroy itself
     {
-        //unsubscribing
+        // unsubscribing
         if (_damageOnTouch != null)
             _damageOnTouch.OnHit -= Die;
 

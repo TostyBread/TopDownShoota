@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
         AutoFireShootInterval.CurrentProgress = Cooldown.Progress.Ready; //if weapon is finish shooting, ready to fire next time user shoots.
     }
 
+    public GameObject[] Feedbacks; // giving feedbacks (like sfx after firing a weapon)
     public void Shoot()
     {
         if (Projectile == null) //DEBUG if projectile is missing
@@ -39,5 +40,15 @@ public class Weapon : MonoBehaviour
         GameObject bullet = GameObject.Instantiate(Projectile, SpawnPos.position, SpawnPos.rotation); //The projectile properties (shoot position and direction)
 
         AutoFireShootInterval.StartCooldown();
+
+        SpawnFeedbacks(); // Will spawn the sound
+    }
+
+    void SpawnFeedbacks() // Will spawn the sound
+    {
+        foreach(var feedback in Feedbacks)
+        {
+            GameObject.Instantiate(feedback, SpawnPos.position, SpawnPos.rotation);
+        }
     }
 }

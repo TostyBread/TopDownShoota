@@ -20,16 +20,10 @@ public class Health : MonoBehaviour
     private float _currentHealth = 10f;
     private bool _canDamage = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        
+        ResetInvulnerable();
     }
 
     private void ResetInvulnerable()

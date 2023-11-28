@@ -48,12 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9693e7416f20e37479adf4614b26ae4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 3
-  Speed: 500
-  PushForce: 50
+  Speed: 750
   BulletLife:
     CurrentProgress: 0
-    Duration: 1
+    Duration: 1.5
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 192
@@ -70,6 +68,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 2
+  PushForce: 50
+  DamagableFeedbacks:
+  - {fileID: 6141377232826133393, guid: 1114c3734cd53aa44ac9b00dbf3130e6, type: 3}
+  AnythingFeedbacks:
+  - {fileID: 1359984587955335844, guid: f24e1fde778844c48a2784af2a078de7, type: 3}
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 64

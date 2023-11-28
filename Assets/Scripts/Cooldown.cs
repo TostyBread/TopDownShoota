@@ -19,24 +19,17 @@ public class Cooldown
     public float Duration = 1.0f; //Duration between each shot
     public float TimeLeft
     {
-        get
-        {
-            return _currentDuration;
-        }
+        get { return _currentDuration; }
     }
     public bool IsOnCooldown
     {
-        get
-        {
-            return _isOnCooldown;
-        }
+        get { return _isOnCooldown; }
     }
     
     private float _currentDuration = 0f; //after a shot, the timer resets
     private bool _isOnCooldown; //after shoot, it pauses/resumes
 
     private Coroutine _coroutine;
-
 
     public void StartCooldown()
     {
@@ -54,6 +47,7 @@ public class Cooldown
         _isOnCooldown = false;
         CurrentProgress = Progress.Ready;
     }
+
     IEnumerator OnCoolDown()
     {
         CurrentProgress = Progress.Started;
