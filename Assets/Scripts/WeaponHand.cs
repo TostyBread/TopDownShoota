@@ -34,11 +34,24 @@ public class WeaponHand : MonoBehaviour
         {
             CurrentWeapon.Shoot();
         }
+        else
+            CurrentWeapon.StopShoot();
     }
 
-    public void EquipWeapon(Weapon weapon)
+    public void EquipWeapon(GameObject equipWeapon)
     {
-        if (weapon == null) //if current weapon isnt equip, do nothing
+        if (equipWeapon == null) //if current weapon isnt equip, do nothing
+            return;
+
+        if(CurrentWeapon != null)
+        {
+            Destroy(CurrentWeapon.gameObject);
+        }
+
+        GameObject _weaponGO = GameObject.Instantiate(equipWeapon, GunPosition);
+        Weapon weapon = _weaponGO.GetComponent<Weapon>();
+
+        if (weapon == null)
             return;
 
         CurrentWeapon = weapon;
