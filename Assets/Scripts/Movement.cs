@@ -37,6 +37,9 @@ public class Movement : MonoBehaviour
     }
     protected virtual void HandleRotation()
     {
+        if (_inputDirection == Vector2.zero)
+            return;
+
         transform.rotation = Quaternion.LookRotation(Vector3.forward, (_targetVelocity)); //movement based on wsad
     }
 

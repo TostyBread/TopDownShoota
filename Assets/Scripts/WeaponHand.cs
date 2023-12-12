@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WeaponHand : MonoBehaviour
 {
-
     public Weapon CurrentWeapon; //Weapons
     public Transform GunPosition; //Weapon position
 
@@ -31,9 +30,7 @@ public class WeaponHand : MonoBehaviour
         CurrentWeapon.transform.rotation = GunPosition.rotation;
 
         if (_tryShoot) //when firing weapon
-        {
             CurrentWeapon.Shoot();
-        }
         else
             CurrentWeapon.StopShoot();
     }

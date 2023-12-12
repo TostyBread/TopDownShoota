@@ -8,25 +8,26 @@ public class DamageOnTouch : MonoBehaviour
     public delegate void OnHitSomething();
     public OnHitSomething OnHit;
 
-    public float Damage = 1f;
-    public float PushForce = 10f;
+    public float Damage = 1f; // Damage rate
+    public float PushForce = 10f; // Knockback effect
 
     public GameObject[] DamagableFeedbacks;
     public GameObject[] AnythingFeedbacks;
 
     public LayerMask TargetLayerMask;
+    public LayerMask IgnoreLayerMask;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (((IgnoreLayerMask.value & (1 << col.gameObject.layer)) > 0))
+            return;
+
         // If we hit something that doesn't belong in our TargetLayerMask
         if (((TargetLayerMask.value & (1 << col.gameObject.layer)) > 0))
-        {
             HitDamagable(col);
-        }
+        
         else
-        {
             HitAnything(col);
-        }
     }
 
     private void HitAnything(Collider2D col)

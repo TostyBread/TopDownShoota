@@ -5,13 +5,13 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public delegate void HitEvent(GameObject source);
-    public HitEvent OnHit;
+    public HitEvent OnHit; // When hit
 
     public delegate void ResetEvent();
-    public ResetEvent OnHitReset;
+    public ResetEvent OnHitReset; // after Hit
 
     public float MaxHealth = 10f;
-    public Cooldown Invulnerable;
+    public Cooldown Invulnerable; // Player invulnerable
 
     public float CurrentHealth
     {
@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
     private float _currentHealth = 10f;
     private bool _canDamage = true;
 
-    // Update is called once per frame
+    
     void Update()
     {
         ResetInvulnerable();
@@ -47,6 +47,13 @@ public class Health : MonoBehaviour
         {
             _currentHealth = 0f;
             Die();
+        }
+
+        if (Invulnerable.Duration > 0)
+        {
+            Invulnerable.StartCooldown();
+            _canDamage = false;
+
         }
 
         Invulnerable.StartCooldown();

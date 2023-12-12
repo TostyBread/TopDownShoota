@@ -20,22 +20,58 @@ public class Weapon : MonoBehaviour
 
     public float _timer = 0f; 
     private bool _canShoot = true;
-    private bool _singleFireReset = true;
+    private bool _singleFireReset = true; // Simgle fire toggle
 
-    public int BurstFireAmount = 3;
+    public int BurstFireAmount = 3; // bullets shoot in each burst fire
     public float BurstFireInterval = 0.1f; // interval between bullets in burst fire
+    public int ProjectileCount = 10; // initial amount of bullet in a fresh picked up weapon?
 
     public GameObject Projectile; //Weapon bullet
-    public Transform SpawnPos; //Weapon start position
-    public Cooldown AutoFireShootInterval; //Weapon rate of fire (tied with Cooldown script)
-    public GameObject[] Feedbacks; // giving feedbacks (like sfx after firing a weapon)
 
+    public Transform SpawnPos; //Weapon start position
+    public Cooldown ShootInterval; //Weapon rate of fire (tied with Cooldown script)
+
+    public GameObject[] Feedbacks; // giving feedbacks (like sfx after firing a weapon)
+    public GameObject[] ReloadFeedbacks;
+
+    public Cooldown ReloadCooldown;
+    public int MaxBulletCount = 20;
+
+    public int CurrentBulletCount // bullet system
+    {
+        get { return currentBulletCount; }
+    }
+    protected int currentBulletCount;
+
+    private void Start()
+    {
+        
+    }
     void Update()
     {
-        if (AutoFireShootInterval.CurrentProgress != Cooldown.Progress.Finished) //if weapon is not finish shooting, return
+        UpdateReloadCooldown();
+        UpdateShootCooldown();
+    }
+
+    private void UpdateReloadCooldown()
+    {
+        if (ReloadCooldown.CurrentProgress != Cooldown.Progress.Finished) //if weapon is not finish shooting, return
             return;
 
-        AutoFireShootInterval.CurrentProgress = Cooldown.Progress.Ready; //if weapon is finish shooting, ready to fire next time user shoots.
+        if (ReloadCooldown.CurrentProgress == Cooldown.Progress.Finished)
+        {
+            currentBulletCount = MaxBulletCount;
+        }
+
+        ReloadCooldown.CurrentProgress = Cooldown.Progress.Ready; //if weapon is finish shooting, ready to fire next time user shoots.
+    }
+
+    private void UpdateShootCooldown()
+    {
+        if (ShootInterval.CurrentProgress != Cooldown.Progress.Finished)
+            return;
+
+        ShootInterval.CurrentProgress = Cooldown.Progress.Ready;
     }
 
     public void Shoot()
@@ -52,7 +88,10 @@ public class Weapon : MonoBehaviour
             return;
         }
 
-        switch (FireMode)
+        if (ReloadCooldown.IsOnCooldown || ReloadCooldown.CurrentProgress != Cooldown.Progress.Ready)
+            return;
+
+        switch (FireMode) // Weapon fire modes
         {
             case FireModes.Auto:
                 {
@@ -70,22 +109,48 @@ public class Weapon : MonoBehaviour
                     break;
                 }
         }
-        //if (AutoFireShootInterval.CurrentProgress != Cooldown.Progress.Ready)
-        //    return;
 
-        //GameObject bullet = GameObject.Instantiate(Projectile, SpawnPos.position, SpawnPos.rotation); //The projectile properties (shoot position and direction)
-
-        //AutoFireShootInterval.StartCooldown();
-
-        //SpawnFeedbacks(); // Will spawn the sound
     }
 
-    void AutoFireShoot()
+    void ShootProjectile() // handles the projectile part
+    {
+        float randomRot = Random.Range(-Spread, Spread);
+
+        GameObject Bullet = GameObject.Instantiate(Projectile, SpawnPos.position, SpawnPos.rotation * Quaternion.Euler(0, 0, randomRot));
+        SpawnFeedbacks(); // Will spawn the sound
+    }
+
+    void ReloadStart() // ReloadCheck will handle the ammunition decreasing and reloading part
     {
 
+        if (currentBulletCount <= 0 && !ReloadCooldown.IsOnCooldown) // when empty, reload timer will start
+        {
+            foreach (var feedback in ReloadFeedbacks)
+            {
+                GameObject.Instantiate(feedback, transform.position, transform.rotation);
+            }
+
+            ReloadCooldown.StartCooldown();
+        }
     }
 
-    void SingleFireShoot()
+    void AutoFireShoot() // Handles Auto fire mode
+    {
+        if (!_canShoot)
+            return;
+
+        if (ShootInterval.CurrentProgress != Cooldown.Progress.Ready)
+            return;
+
+        ShootProjectile(); // Shoots bullet
+        currentBulletCount--; // when shoot, bullet will decrease
+        ShootInterval.StartCooldown();
+
+        ReloadStart(); // check if gun is empty
+        
+    }
+
+    void SingleFireShoot() // Handles Single fire mode
     {
         if (! _canShoot)
             return;
@@ -93,10 +158,12 @@ public class Weapon : MonoBehaviour
         if (!_singleFireReset)
             return;
 
-        float randomRot = Random.Range(-Spread, Spread);
+        ShootProjectile();
+        currentBulletCount--; // when shoot, bullet will decrease
 
-        GameObject Bullet = GameObject.Instantiate(Projectile, SpawnPos.position, SpawnPos.rotation * Quaternion.Euler(0, 0, randomRot));
-        SpawnFeedbacks(); // Will spawn the sound
+        ReloadStart(); // check if gun is empty
+
+        _singleFireReset = false;
     }
 
     void BurstFireShoot()
@@ -110,10 +177,10 @@ public class Weapon : MonoBehaviour
         if (!_singleFireReset)
             return;
 
-        if (AutoFireShootInterval.CurrentProgress != Cooldown.Progress.Ready)
+        if (ShootInterval.CurrentProgress != Cooldown.Progress.Ready)
             return;
 
-        StartCoroutine(BurstFireCo(1f));
+        StartCoroutine(BurstFireCo());
     }
 
     IEnumerator BurstFireCo(float time = 3f)
@@ -121,19 +188,14 @@ public class Weapon : MonoBehaviour
         _burstFiring = true;
         _singleFireReset = false;
 
-        //if(Time.time - _lastShootRequestAt < BurstFireInterval) // prevents from calling too much co-routine
-        //{
-        //    yield break;
-        //}
-
         int remainingShots = BurstFireAmount;
 
         while(remainingShots > 0)
         {
-            float randomRot = Random.Range(-Spread, Spread);
+            ShootProjectile();
+            currentBulletCount--; // when shoot, bullet will decrease
+            ReloadStart(); // Check if gun is empty
 
-            GameObject Bullet = GameObject.Instantiate(Projectile, SpawnPos.position, SpawnPos.rotation * Quaternion.Euler(0, 0, randomRot));
-            SpawnFeedbacks(); // Will spawn the sound
             _lastShootRequestAt = Time.time;
 
             remainingShots--;
@@ -141,10 +203,8 @@ public class Weapon : MonoBehaviour
 
         }
 
-        Debug.Log("Ended");
-
         _burstFiring = false;
-        AutoFireShootInterval.StartCooldown(); 
+        ShootInterval.StartCooldown(); 
     }
 
     IEnumerator WaitFor(float seconds)
@@ -157,12 +217,15 @@ public class Weapon : MonoBehaviour
 
     public void StopShoot()
     {
+        if (FireMode == FireModes.Auto)
+            return;
+
         _singleFireReset = true;
     }
 
     void SpawnFeedbacks() // Will spawn the sound
     {
-        foreach(var feedback in Feedbacks)
+        foreach ( var feedback in Feedbacks )
         {
             GameObject.Instantiate(feedback, SpawnPos.position, SpawnPos.rotation);
         }
