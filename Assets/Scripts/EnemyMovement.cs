@@ -9,10 +9,10 @@ public class EnemyMovement : Movement
 
     protected override void HandleInput() //bot input here
     {
-        if (Target == null)
+        if (Target == null) // if target is not available, find player
             Target = GameObject.FindWithTag("Player").transform;
 
-        if (Target == null)
+        if (Target == null) // if player and cat food is not available, return
             return;
 
         _inputDirection =

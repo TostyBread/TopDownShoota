@@ -41,11 +41,11 @@ public class Weapon : MonoBehaviour
     {
         get { return currentBulletCount; }
     }
-    protected int currentBulletCount;
+    protected int currentBulletCount; // everytime weapon was picked up, it has set amount of bullets
 
     private void Start()
     {
-        
+        currentBulletCount = MaxBulletCount; // Assign MaxBulletCount with currentBulletCount to avoid gun always reload after 1 shot
     }
     void Update()
     {
@@ -53,7 +53,7 @@ public class Weapon : MonoBehaviour
         UpdateShootCooldown();
     }
 
-    private void UpdateReloadCooldown()
+    private void UpdateReloadCooldown() // Reload cooldown
     {
         if (ReloadCooldown.CurrentProgress != Cooldown.Progress.Finished) //if weapon is not finish shooting, return
             return;
@@ -66,7 +66,7 @@ public class Weapon : MonoBehaviour
         ReloadCooldown.CurrentProgress = Cooldown.Progress.Ready; //if weapon is finish shooting, ready to fire next time user shoots.
     }
 
-    private void UpdateShootCooldown()
+    private void UpdateShootCooldown() // Shoot cooldown
     {
         if (ShootInterval.CurrentProgress != Cooldown.Progress.Finished)
             return;

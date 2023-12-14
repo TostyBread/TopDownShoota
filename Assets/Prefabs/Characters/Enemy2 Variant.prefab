@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 697105385942232277, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1613937196667383198, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59,6 +63,26 @@ PrefabInstance:
     - target: {fileID: 2449275477550836665, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
       propertyPath: m_Name
       value: Enemy2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827033163106990034, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
+      propertyPath: MaxHealth
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389880278430326906, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
+      propertyPath: Damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389880278430326906, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
+      propertyPath: PushForce
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730612520697427511, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
+      propertyPath: MovementSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9131914190104078288, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

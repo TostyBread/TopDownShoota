@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3616598454344243557}
   - component: {fileID: 3364803496695087456}
   m_Layer: 0
-  m_Name: Squirt gun
+  m_Name: SquirtGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
