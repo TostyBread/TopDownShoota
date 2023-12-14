@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4288794644111594007}
   - component: {fileID: 1109143018298480464}
   - component: {fileID: 5129807632142880775}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GelBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
