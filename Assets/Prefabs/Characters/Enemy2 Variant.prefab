@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: d48aeb607b87b6a4da43694d66e5243d, type: 3}
     - target: {fileID: 588595427925871263, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 697105385942232277, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
       propertyPath: m_IsTrigger
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3827033163106990034, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
       propertyPath: MaxHealth
-      value: 14
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4389880278430326906, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
       propertyPath: Damage
@@ -76,9 +76,21 @@ PrefabInstance:
       propertyPath: PushForce
       value: 900
       objectReference: {fileID: 0}
+    - target: {fileID: 4389880278430326906, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
+      propertyPath: IgnoreLayerMask.m_Bits
+      value: 704
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389880278430326906, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
+      propertyPath: DamagableFeedbacks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389880278430326906, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
+      propertyPath: DamagableFeedbacks.Array.data[0]
+      value: 
+      objectReference: {fileID: 5874736371057336977, guid: 802d46b7a30fc3949aa5d68ca1be4a65, type: 3}
     - target: {fileID: 7730612520697427511, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
       propertyPath: MovementSpeed
-      value: 3.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9131914190104078288, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
       propertyPath: m_IsTrigger

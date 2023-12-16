@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2668040251638506177
+--- !u!1 &7633268595578187367
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 238948248674338862}
-  - component: {fileID: 1925812664915388566}
-  - component: {fileID: 5818467654807328064}
+  - component: {fileID: 5900381871203390189}
+  - component: {fileID: 9169605519298860090}
+  - component: {fileID: 6887195154906904165}
   m_Layer: 0
-  m_Name: SprayBottleFire
+  m_Name: CatEatFood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &238948248674338862
+--- !u!4 &5900381871203390189
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2668040251638506177}
+  m_GameObject: {fileID: 7633268595578187367}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,35 +33,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1925812664915388566
+--- !u!114 &9169605519298860090
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2668040251638506177}
+  m_GameObject: {fileID: 7633268595578187367}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5142ebb4f6ac4dd448facc9b1d467c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClips:
-  - {fileID: 8300000, guid: 5014cc591d842714d8de1353b6e7edaf, type: 3}
-  - {fileID: 8300000, guid: 7a579803f7ec5da42ae967d273e371e0, type: 3}
-  - {fileID: 8300000, guid: fd0b18fabda7b004a91bf2cd1109c287, type: 3}
-  - {fileID: 8300000, guid: 03017a27fbfd34244913f0c50298d261, type: 3}
-  - {fileID: 8300000, guid: be46d82a6568d494495d796e26705197, type: 3}
-  MinPitch: 0.7
-  MaxPitch: 0.9
-  MinVolume: 0.7
-  MaxVolume: 0.9
---- !u!82 &5818467654807328064
+  - {fileID: 8300000, guid: 015e7c53881f4cf49948c0c9d0418c2f, type: 3}
+  MinPitch: 0.8
+  MaxPitch: 1
+  MinVolume: 0.2
+  MaxVolume: 0.5
+--- !u!82 &6887195154906904165
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2668040251638506177}
+  m_GameObject: {fileID: 7633268595578187367}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}

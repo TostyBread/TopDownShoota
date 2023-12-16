@@ -9,11 +9,15 @@ public class Weapon : MonoBehaviour
     {
         Auto, // = 0
         SingleFire, // = 1
-        BurstFire // = 2
+        BurstFire, // = 2
+        Shotgun
     }
 
     private bool _burstFiring = false; // Specifically for burst fire code
     private float _lastShootRequestAt;
+
+    public int ShotgunPellets = 4; // Shotgun pellets amount
+    public float ShotgunSpreadAngle = 20f; // Shotgun spread angle
 
     public FireModes FireMode; // Declare fire mode
     public float Spread = 0f; // weapon bloom
@@ -108,6 +112,11 @@ public class Weapon : MonoBehaviour
                     BurstFireShoot();
                     break;
                 }
+            case FireModes.Shotgun:
+                {
+                    ShotgunShoot();
+                    break;
+                }
         }
 
     }
@@ -120,18 +129,33 @@ public class Weapon : MonoBehaviour
         SpawnFeedbacks(); // Will spawn the sound
     }
 
+    void ShootProjectileSpread() // handles shotgun projectile part
+    {
+        for (int i = 0; i < ShotgunPellets; i++)
+        {
+            Quaternion spreadRotation = Quaternion.Euler(0f, 0f, Random.Range(-ShotgunSpreadAngle, ShotgunSpreadAngle));
+            GameObject Bullet = Instantiate(Projectile, SpawnPos.position, SpawnPos.rotation * spreadRotation);
+        }
+        SpawnFeedbacks(); // Will spawn the sound
+    }
+
     void ReloadStart() // ReloadCheck will handle the ammunition decreasing and reloading part
     {
 
         if (currentBulletCount <= 0 && !ReloadCooldown.IsOnCooldown) // when empty, reload timer will start
         {
-            foreach (var feedback in ReloadFeedbacks)
-            {
-                GameObject.Instantiate(feedback, transform.position, transform.rotation);
-            }
-
-            ReloadCooldown.StartCooldown();
+            ReloadPart();
         }
+    }
+
+    void ReloadPart()
+    {
+        foreach (var feedback in ReloadFeedbacks)
+        {
+            GameObject.Instantiate(feedback, transform.position, transform.rotation);
+        }
+
+        ReloadCooldown.StartCooldown();
     }
 
     void AutoFireShoot() // Handles Auto fire mode
@@ -166,7 +190,7 @@ public class Weapon : MonoBehaviour
         _singleFireReset = false;
     }
 
-    void BurstFireShoot()
+    void BurstFireShoot() // Handles burst fire
     {
         if (!_canShoot)
             return;
@@ -181,6 +205,22 @@ public class Weapon : MonoBehaviour
             return;
 
         StartCoroutine(BurstFireCo());
+    }
+
+    void ShotgunShoot() // Handles Shotgun blast
+    {
+        if (!_canShoot)
+            return;
+
+        if (!_singleFireReset)
+            return;
+
+        ShootProjectileSpread();
+        currentBulletCount--; // when shoot, bullet will decrease
+
+        ReloadStart(); // check if gun is empty
+
+        _singleFireReset = false;
     }
 
     IEnumerator BurstFireCo(float time = 3f)
