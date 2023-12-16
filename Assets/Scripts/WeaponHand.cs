@@ -5,10 +5,10 @@ using UnityEngine;
 public class WeaponHand : MonoBehaviour
 {
     public Weapon CurrentWeapon; // Current equip weapon
-    public Transform GunPosition; //Weapon position
+    public Transform GunPosition; // Weapon position
 
-    protected bool _tryShoot = false; //handles whether weapon shoot or not
-    protected bool _tryReload = false;
+    protected bool _tryShoot = false; // Handles whether weapon shoot or not
+
     // Update is called once per frame
     void Update()
     {
@@ -33,9 +33,6 @@ public class WeaponHand : MonoBehaviour
             CurrentWeapon.Shoot();
         else // stop shooting
             CurrentWeapon.StopShoot();
-
-        //if (_tryReload)
-        //    CurrentWeapon.ReloadPart();
     }
 
     public void EquipWeapon(GameObject equipWeapon) //Weapon equip

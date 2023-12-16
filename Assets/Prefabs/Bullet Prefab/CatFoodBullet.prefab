@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c29d911e64005a4984d3b9270142dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 2
+  MaxHealth: 3
   Invulnerable:
     CurrentProgress: 0
     Duration: 0

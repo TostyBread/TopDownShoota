@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bd678ebd6fb4744baf453c81846bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShotgunPellets: 4
+  ShotgunSpreadAngle: 20
   FireMode: 1
   Spread: 0
   _timer: 0
@@ -58,11 +60,12 @@ MonoBehaviour:
     CurrentProgress: 0
     Duration: 1
   Feedbacks:
+  - {fileID: 758149167698125674, guid: 3cc3ce5ea53eb4542934cae6abce571c, type: 3}
+  ReloadFeedbacks:
   - {fileID: 6130160757548461430, guid: d4c9b28b38479b9488aba76cb4c0e51e, type: 3}
-  ReloadFeedbacks: []
   ReloadCooldown:
     CurrentProgress: 0
-    Duration: 7
+    Duration: 7.5
   MaxBulletCount: 1
 --- !u!1 &4396557996078395006
 GameObject:

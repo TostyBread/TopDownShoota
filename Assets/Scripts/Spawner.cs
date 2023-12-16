@@ -9,11 +9,11 @@ public class Spawner : MonoBehaviour
     public GameObject[] Cats; // Insert enemy here
 
     // spawn location, or distance away from camera
-    public float MinX = -19; 
-    public float MaxX = 19;
+    public float MinX = -25; 
+    public float MaxX = 25;
 
-    public float MinY = -10;
-    public float MaxY = 10;
+    public float MinY = -15;
+    public float MaxY = 15;
 
     public Transform Top;
     public Transform Bot;
@@ -35,21 +35,40 @@ public class Spawner : MonoBehaviour
         }
         else // once it reaches 0, reduce the minimun and maximun spawn rate, and also reset the timer as well
         {
-            // if player somehow survived until spawn cooldown became too small, run this perimeter to avoid game from spawning too fast and crashing it
-            if (MinSpawnCooldown > 0.5) 
+            // if MinSpawnCooldown is smaller than 0.3, check MaxSpawnCooldown. IF BOTH CONDITIONS ARE TRUE, DIFFICULTY CAP HAS REACHED. Otherwise, lower MaxSpawnCooldown time.
+            if (MinSpawnCooldown < 0.3)  
             {
-                MaxSpawnCooldown -= DifficultyRate;
-                _difficultyTimer = DifficultyIncreaseInterval;
+                if (MaxSpawnCooldown < 0.9)
+                {
+                    _difficultyTimer = DifficultyIncreaseInterval;
+                    return;
+                }
+                else
+                {
+                    MaxSpawnCooldown -= DifficultyRate;
+                    _difficultyTimer = DifficultyIncreaseInterval; // Resets the difficulty timer when decrease cooldown time
+                }
             }
-            else if (MinSpawnCooldown > 0.5 && MaxSpawnCooldown > 1)
+            // if MaxSpawnCooldown is smaller than 0.9, check MinSpawnCooldown. IF BOTH CONDITIONS ARE TRUE, DIFFICULTY CAP HAS REACHED. Otherwise, lower MinSpawnCooldown time.
+            else if (MaxSpawnCooldown < 0.9)
             {
-                return;
+                if (MinSpawnCooldown < 0.3)
+                {
+                    _difficultyTimer = DifficultyIncreaseInterval;
+                    return;
+                }
+                else
+                {
+                    MinSpawnCooldown -= DifficultyRate;
+                    _difficultyTimer = DifficultyIncreaseInterval; // Resets the difficulty timer when decrease cooldown time
+                }
             }
+            // if both conditions haven't met, lower both Min and Max SpawnCooldown time.
             else
             {
                 MinSpawnCooldown -= DifficultyRate;
                 MaxSpawnCooldown -= DifficultyRate;
-                _difficultyTimer = DifficultyIncreaseInterval;
+                _difficultyTimer = DifficultyIncreaseInterval; // Resets the difficulty timer when decrease cooldown time
             }
         }
 

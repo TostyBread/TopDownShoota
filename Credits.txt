@@ -7,11 +7,15 @@ MP5 image - CYMA Gel Blaster
 Desert Eagle image- CS GO
 Crosshair = Lucian Pavel in opengameart.org
 Cat food image = DayZ
-**Weapon held image are all drawn by Kenji**
+
+Desert Eagle equiped image - Drawn by Kenji
+MP5 equiped image - Drawn by Kenji
+Spray Bottle equiped image - Drawn by Kenji
+Water gun equiped image - Drawn by Kenji
 
 //CHARACTERS//
-Pissed owner - Drawn by Kenji, reference from Rick Astley
-Hungry cat (White and Orange) - Drawn by Kenji
+Pissed owner (Rick Astley, player controlled character)- Drawn by Kenji
+Hungry cat (White and Orange, Enemy) - Drawn by Kenji
 
 //SFX//
 Water spraying sfx (Water gun and Spray bottle) - Soundsnap website
@@ -20,8 +24,16 @@ Weapon equip & reload sound - Valve's Half-Life
 Gel blaster sfx - ZapSplat website
 Can opening sfx - Utility Sounds(Youtube)
 Cat eating sfx - huh
-Shared sfx (cat hitting stuff & player hurt) - Minecraft Damage sfx
+Shared sfx (cat hitting food & player hurt) - Minecraft Damage sfx
+Hitting non character sfx - Tommy's Ricochet sfx
 
 //PROPS//
 Generic box - Drawn by Kenji
 Generic Barrel - Drawn by Kenji
+Generic SupplyRack - Drawn by Kenji
+Generic StackBoxes - Drawn by Kenji
+
+//BACKGROUND & ENVIRONMENT//
+ArenaBattlemap - Drawn by Kenji
+WarehouseBattlemap - Drawn by Kenji
+Main Menu background - Drawn by Kenji

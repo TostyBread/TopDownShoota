@@ -41,6 +41,9 @@ public class EnemyMovement : Movement
             return closestTarget;
         }
 
+        if (player == null) // if player is not available, don't do anything
+            return;
+
         // input direction will be assign with current target position - initial bot position (basically trying to minimize the distance between target and bot)
 
         _inputDirection =

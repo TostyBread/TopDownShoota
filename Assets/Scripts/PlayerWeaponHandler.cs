@@ -14,11 +14,8 @@ public class PlayerWeaponHandler : WeaponHand
         if (Input.GetButtonUp("Fire1"))
             _tryShoot = false;
 
-        //if (Input.GetButton("R")) // Reloading test
-        //    _tryReload = true;
-
-        //if (Input.GetButtonUp("R"))
-        //    _tryReload = false;
+        if (Input.GetKeyDown(KeyCode.R)) // Reloading test
+            CurrentWeapon.MidReload();
     }
 
     public Vector2 AimPosition()

@@ -147,6 +147,13 @@ public class Weapon : MonoBehaviour
             ReloadPart();
         }
     }
+    public void MidReload()
+    {
+        if (currentBulletCount != MaxBulletCount)
+        {
+            ReloadPart();
+        }
+    }
 
     void ReloadPart()
     {
