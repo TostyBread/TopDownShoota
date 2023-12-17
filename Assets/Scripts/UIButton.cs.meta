@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a30fdad7071244643b70ad9bdba249eb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mainMenuController: {instanceID: 0}
+  - mainMenuUI: {fileID: 9147342531885994600, guid: 4592d16472dd62a46ad90f831123a9e4, type: 3}
+  - functionMenuUI: {fileID: 5646829763144707580, guid: 0e69180df5713e64fac51199443488a6, type: 3}
+  - levelMenuUI: {fileID: 5798356551212658635, guid: 23d91b59999b3074181112ca0d095b34, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -37,3 +37,11 @@ Generic StackBoxes - Drawn by Kenji
 ArenaBattlemap - Drawn by Kenji
 WarehouseBattlemap - Drawn by Kenji
 Main Menu background - Drawn by Kenji
+
+
+-- Known issues--
+
+- Enemy are stupid, they get suck on obstacles and dont know how to maneuver around (A: This project doesn't plan to tackle smart AI, its a beginner game)
+- Main Menu transition is out of sycn with UI (A: Currently Im also struggling about fixing it as well, but I want to use this method instead of switching scene)
+- Nowhere to reset high score (A: Due to the limited time im having to create this project for my school purpose, I have to leave it unimplemented)
+- No settings (A: There is no graphics settings, audio, or typical game settings. This is a beginner project, so its not important as most of the things are settled during making of this game)
