@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class CatFoodProjectile : MonoBehaviour
 {
-    public LayerMask TargetLayerMask; //Target specific layer
+    public LayerMask IgnoreLayerMask; //Target specific layer
     public Cooldown BulletLife; // Catfood life time (unused)
 
     public float throwForce = 10f;
     private Rigidbody2D _rigidbody;
     private DamageOnTouch _damageOnTouch;
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if ((((IgnoreLayerMask.value & (1 << col.gameObject.layer)) > 0)))
+            return;
+    }
 
     void Start()
     {

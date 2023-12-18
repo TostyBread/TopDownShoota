@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae48139481d3314eb20364bbf56a12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropChance: 15
+  DropChance: 7
   RandomLoots:
   - {fileID: 8356947174944264877, guid: 0f6cc993f24c06a4a8da2a298b915040, type: 3}
   - {fileID: 3627360212383394682, guid: aa29df2302fc8f441902310087df0c8d, type: 3}

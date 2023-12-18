@@ -138,7 +138,7 @@ MonoBehaviour:
     m_Bits: 64
   IgnoreLayerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 3840
 --- !u!114 &8267921508296491151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,9 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d525ce4b54d144aae0cfbbef83d883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetLayerMask:
+  IgnoreLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024
   BulletLife:
     CurrentProgress: 0
     Duration: 1
