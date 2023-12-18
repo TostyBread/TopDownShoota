@@ -19,7 +19,7 @@ public class DamageOnTouch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (((IgnoreLayerMask.value & (1 << col.gameObject.layer)) > 0))
+        if ((((IgnoreLayerMask.value & (1 << col.gameObject.layer)) > 0)))
             return;
 
         // If we hit something that doesn't belong in our TargetLayerMask
@@ -64,7 +64,7 @@ public class DamageOnTouch : MonoBehaviour
     private void TryDamage(Health targetHealth)
     {
         targetHealth.Damage(Damage, transform.gameObject);
-        Debug.Log("hit" + targetHealth);
+        //Debug.Log("hit" + targetHealth);
         OnHit?.Invoke();
     }
 

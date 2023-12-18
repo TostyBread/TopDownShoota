@@ -13,8 +13,7 @@ public class GameRecorderManager : MonoBehaviour
 
     // timer variables
     private float timer = 0f;
-    private float highestTime = 0f; // maybe for resetting scoring
-    //private float storeDefaultTime = 0f; // store highscore (out of time to code any more funtions to reset highscore)
+    private float highestTime = 0f; // Record player highest survived time
 
     private string highScoreKey = "HighScore"; // probably like a Dictionary method in C#
 
@@ -75,4 +74,11 @@ public class GameRecorderManager : MonoBehaviour
     {
         highestTime = PlayerPrefs.GetFloat(highScoreKey, 0f);
     }
+
+    //public void OnResetHighScore() // player can reset their high score (unused)
+    //{
+    //    highestTime = 0f;
+    //    PlayerPrefs.SetFloat(highScoreKey, highestTime);
+    //    PlayerPrefs.Save();
+    //}
 }

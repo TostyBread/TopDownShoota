@@ -7,8 +7,14 @@ public class Health : MonoBehaviour
     public delegate void HitEvent(GameObject source);
     public HitEvent OnHit; // When hit
 
+    public delegate void HealEvent(GameObject source);
+    public HealEvent OnHeal; // Healing event
+
     public delegate void ResetEvent();
     public ResetEvent OnHitReset; // after Hit
+
+    public delegate void DeathEvent(); // When enemy dies
+    public DeathEvent OnDeath;
 
     public float MaxHealth = 10f;
     public Cooldown Invulnerable; // Player invulnerable
@@ -62,8 +68,18 @@ public class Health : MonoBehaviour
         OnHit?.Invoke(source);
     }
 
+    public void Heal(float healAmount)
+    {
+        _currentHealth += healAmount;
+
+        _currentHealth = Mathf.Clamp(_currentHealth, 0, MaxHealth);
+
+        OnHit?.Invoke(gameObject);
+    }
+
     public void Die()
     {
+        OnDeath?.Invoke();
         Destroy(this.gameObject);
     }
     

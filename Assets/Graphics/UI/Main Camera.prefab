@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2645ec811786f546ac48a4c9dde5d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMenuPosition: {fileID: 0}
-  functionMenuPosition: {fileID: 0}
   mainMenuPosition: {fileID: 0}
-  transitionSpeed: 5
+  functionMenuPosition: {fileID: 0}
+  levelMenuPosition: {fileID: 0}
+  transitionSpeed: 10

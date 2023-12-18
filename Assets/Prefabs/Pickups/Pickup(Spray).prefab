@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 614668479858670757}
-  - component: {fileID: 5264325348070400739}
   - component: {fileID: 291954514903793893}
   - component: {fileID: 2592667898180729361}
-  m_Layer: 0
+  - component: {fileID: 3318480440778464728}
+  m_Layer: 11
   m_Name: Pickup(Spray)
-  m_TagString: Pickup
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,24 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5264325348070400739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3627360212383394682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb32d1cf9446f914cbd0e2afda5f16ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Weapon: {fileID: 5395159112070574729, guid: e0c413ebd0c527a4a8b631b74fe1c2d8, type: 3}
-  PickupFeedbacks:
-  - {fileID: 5050294195570084721, guid: 434b33fc7a7a882429a98462f4890193, type: 3}
-  TargetLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!61 &291954514903793893
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,3 +131,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3318480440778464728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3627360212383394682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ecf7135f10eba4d98e93bb466e6e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PickupFeedbacks:
+  - {fileID: 5050294195570084721, guid: 434b33fc7a7a882429a98462f4890193, type: 3}
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  IgnoreLayerMask:
+    serializedVersion: 2
+    m_Bits: 3648
+  Weapon: {fileID: 5395159112070574729, guid: e0c413ebd0c527a4a8b631b74fe1c2d8, type: 3}

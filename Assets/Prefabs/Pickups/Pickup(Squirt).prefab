@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8881252440081356061}
-  - component: {fileID: 3378589210830193463}
+  - component: {fileID: 6464968496666079866}
   - component: {fileID: 7412833525374434090}
   - component: {fileID: 3791986354676413216}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pickup(Squirt)
-  m_TagString: Pickup
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3378589210830193463
+--- !u!114 &6464968496666079866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,15 +43,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8356947174944264877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb32d1cf9446f914cbd0e2afda5f16ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 39ecf7135f10eba4d98e93bb466e6e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 1714175127483167060, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
   PickupFeedbacks:
   - {fileID: 5050294195570084721, guid: 434b33fc7a7a882429a98462f4890193, type: 3}
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  IgnoreLayerMask:
+    serializedVersion: 2
+    m_Bits: 1600
+  Weapon: {fileID: 1714175127483167060, guid: 1e9c2a2fb8e03d247b5033f8505509f1, type: 3}
 --- !u!61 &7412833525374434090
 BoxCollider2D:
   m_ObjectHideFlags: 0

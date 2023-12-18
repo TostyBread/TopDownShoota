@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4122867762523397639}
   - component: {fileID: 7730612520697427511}
   - component: {fileID: 3827033163106990034}
+  - component: {fileID: 5347932931217921304}
   m_Layer: 6
   m_Name: Enemy1
   m_TagString: Untagged
@@ -125,10 +126,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c29d911e64005a4984d3b9270142dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
+  MaxHealth: 6
   Invulnerable:
     CurrentProgress: 0
     Duration: 0
+--- !u!114 &5347932931217921304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2449275477550836665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae48139481d3314eb20364bbf56a12c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DropChance: 15
+  RandomLoots:
+  - {fileID: 8356947174944264877, guid: 0f6cc993f24c06a4a8da2a298b915040, type: 3}
+  - {fileID: 3627360212383394682, guid: aa29df2302fc8f441902310087df0c8d, type: 3}
+  - {fileID: 6496620935728432100, guid: bbccebe565f73544dbcec3ab037a3b4b, type: 3}
+  - {fileID: 8202984503538654571, guid: 3becf1e15344a8b41890d0cc356b3960, type: 3}
+  - {fileID: 6098897177139513276, guid: e40852099bc77024287f4a54e105bbe9, type: 3}
+  - {fileID: 895688150979120361, guid: 3b708b462de5faa49be76c3eb149712c, type: 3}
 --- !u!1 &3481715524514261460
 GameObject:
   m_ObjectHideFlags: 0

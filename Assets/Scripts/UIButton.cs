@@ -9,7 +9,7 @@ public class UIButton : MonoBehaviour
     public GameObject mainMenuUI; // Main Menu UI toggle
     public GameObject functionMenuUI; // Function Menu UI toggle
     public GameObject levelMenuUI; // Level select Menu UI toggle
-    private void Start()
+    private void Awake()
     {
         OnMainMenuButtonClicked();
     }

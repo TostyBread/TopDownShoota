@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5254267637262166033}
-  - component: {fileID: 3355716672873671156}
   - component: {fileID: 4813341641799615440}
   - component: {fileID: 4002523864147558195}
-  m_Layer: 0
+  - component: {fileID: 3088961329084990273}
+  m_Layer: 11
   m_Name: Pickup(Deagle)
-  m_TagString: Pickup
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,24 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3355716672873671156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8202984503538654571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb32d1cf9446f914cbd0e2afda5f16ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Weapon: {fileID: 2625070764929358189, guid: 49dc1140a2618394dba003dc39cc942c, type: 3}
-  PickupFeedbacks:
-  - {fileID: 5050294195570084721, guid: 434b33fc7a7a882429a98462f4890193, type: 3}
-  TargetLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!61 &4813341641799615440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,3 +131,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3088961329084990273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202984503538654571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ecf7135f10eba4d98e93bb466e6e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PickupFeedbacks:
+  - {fileID: 5050294195570084721, guid: 434b33fc7a7a882429a98462f4890193, type: 3}
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  IgnoreLayerMask:
+    serializedVersion: 2
+    m_Bits: 3648
+  Weapon: {fileID: 2625070764929358189, guid: 49dc1140a2618394dba003dc39cc942c, type: 3}
