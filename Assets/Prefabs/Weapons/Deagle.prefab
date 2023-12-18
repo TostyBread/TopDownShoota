@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bd678ebd6fb4744baf453c81846bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShotgunPellets: 4
+  ShotgunSpreadAngle: 20
   FireMode: 0
   Spread: 8
   _timer: 0
@@ -56,7 +58,7 @@ MonoBehaviour:
   SpawnPos: {fileID: 2111820540279220932}
   ShootInterval:
     CurrentProgress: 0
-    Duration: 0.25
+    Duration: 0.15
   Feedbacks:
   - {fileID: 7755444941057542143, guid: a49d5d9e0c0001a47a9163bbdbc3dbfa, type: 3}
   ReloadFeedbacks:
@@ -65,6 +67,7 @@ MonoBehaviour:
     CurrentProgress: 0
     Duration: 2
   MaxBulletCount: 25
+  weaponHand: {fileID: 0}
 --- !u!1 &7038844363230732766
 GameObject:
   m_ObjectHideFlags: 0

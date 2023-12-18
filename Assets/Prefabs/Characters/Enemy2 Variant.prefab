@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4389880278430326906, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
       propertyPath: IgnoreLayerMask.m_Bits
-      value: 704
+      value: 2752
       objectReference: {fileID: 0}
     - target: {fileID: 4389880278430326906, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
       propertyPath: DamagableFeedbacks.Array.size
@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 5874736371057336977, guid: 802d46b7a30fc3949aa5d68ca1be4a65, type: 3}
     - target: {fileID: 7730612520697427511, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
       propertyPath: MovementSpeed
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 9131914190104078288, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
       propertyPath: m_IsTrigger

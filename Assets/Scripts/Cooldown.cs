@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class Cooldown
 {
+
     public enum Progress
     {
         Ready,   // == 0

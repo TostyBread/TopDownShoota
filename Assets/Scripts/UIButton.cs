@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIButton : MonoBehaviour
 {
@@ -9,10 +8,7 @@ public class UIButton : MonoBehaviour
     public GameObject mainMenuUI; // Main Menu UI toggle
     public GameObject functionMenuUI; // Function Menu UI toggle
     public GameObject levelMenuUI; // Level select Menu UI toggle
-    private void Awake()
-    {
-        OnMainMenuButtonClicked();
-    }
+
     public void OnPlayButtonClicked() // when play button clicked, run this
     {
         mainMenuController.MoveToLevelSelectMenu();

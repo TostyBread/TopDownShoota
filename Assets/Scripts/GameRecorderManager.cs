@@ -9,22 +9,29 @@ public class GameRecorderManager : MonoBehaviour
     public Text timerText;
     public Text highestTimeText;
 
+    // player died sound
+    public AudioClip killSound;
+    private AudioSource audioSource;
+
     public GameObject gameOver; // game over handler
 
     // timer variables
     private float timer = 0f;
     private float highestTime = 0f; // Record player highest survived time
 
-    private string highScoreKey = "HighScore"; // probably like a Dictionary method in C#
+    private const string highScoreKey = "HighScore"; // probably like a Dictionary method in C#
+    bool playerDiedSound = false;
 
     void Start()
     {
         LoadHighScore();
+        audioSource = GetComponent<AudioSource>();
+        UpdateUI();
     }
 
-    private void Update()
+    void Update()
     {
-        if (GameObject.FindWithTag("Player") != null)
+        if (IsPlayerAlive())
         {
             // Player is present, continue updating the timer
             timer += Time.deltaTime;
@@ -37,7 +44,10 @@ public class GameRecorderManager : MonoBehaviour
             RecordHighestTime();
         }
     }
-
+    bool IsPlayerAlive() // Check if player is alive or not
+    {
+        return GameObject.FindWithTag("Player") != null;
+    }
     private void UpdateUI()
     {
         // Update UI Text elements
@@ -46,6 +56,8 @@ public class GameRecorderManager : MonoBehaviour
     }
     public void RecordHighestTime()
     {
+
+
         if(timer > highestTime)
         {
             highestTime = timer;
@@ -60,6 +72,13 @@ public class GameRecorderManager : MonoBehaviour
             Cursor.visible = true; // renable mouse cursor after death
         }
         timer = 0f;
+
+        if (playerDiedSound == false) // to avoid sound being replayed
+        {
+            PlayerDied();
+            playerDiedSound = true;
+        }
+        
     }
     public void GameOverScene() // display game over scene when player dies
     {
@@ -74,11 +93,8 @@ public class GameRecorderManager : MonoBehaviour
     {
         highestTime = PlayerPrefs.GetFloat(highScoreKey, 0f);
     }
-
-    //public void OnResetHighScore() // player can reset their high score (unused)
-    //{
-    //    highestTime = 0f;
-    //    PlayerPrefs.SetFloat(highScoreKey, highestTime);
-    //    PlayerPrefs.Save();
-    //}
+    void PlayerDied()
+    {
+        audioSource.PlayOneShot(killSound); // plays death sound after player killed
+    }
 }

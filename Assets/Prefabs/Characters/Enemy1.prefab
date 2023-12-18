@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 557144976e8c61f46ae8330094089325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 3
+  MovementSpeed: 3.5
   currentTarget: {fileID: 0}
 --- !u!114 &3827033163106990034
 MonoBehaviour:
@@ -250,7 +250,7 @@ MonoBehaviour:
     m_Bits: 1280
   IgnoreLayerMask:
     serializedVersion: 2
-    m_Bits: 1728
+    m_Bits: 3776
 --- !u!1 &3535717563236051367
 GameObject:
   m_ObjectHideFlags: 0

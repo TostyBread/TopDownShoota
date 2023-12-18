@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -26,10 +27,15 @@ public class Spawner : MonoBehaviour
     protected float _spawnTimer = 0f;
     protected float _difficultyTimer = 0f;
 
-    // Update is called once per frame
     void Update()
     {
-        if(_difficultyTimer > 0) // if timer hasnt reach to 0, continue the countdown
+        GameObject playerExist = GameObject.FindWithTag("Player"); // for spawner to check if player is killed
+        if (playerExist == null) // if player is killed, basically "jamming the timer" to stop enemy from keep spawning
+        {
+            _spawnTimer = 1;
+        }
+
+        if (_difficultyTimer > 0) // if timer hasnt reach to 0, continue the countdown
         {
             _difficultyTimer -= Time.deltaTime;
         }
@@ -98,5 +104,6 @@ public class Spawner : MonoBehaviour
                 break;
         }
         _spawnTimer = Random.Range(MinSpawnCooldown, MaxSpawnCooldown); // after finish spawning, asssign a number randomly between min and max cooldown to _spawnTimer
+
     }
 }

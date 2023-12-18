@@ -41,6 +41,7 @@ public class Weapon : MonoBehaviour
     public Cooldown ReloadCooldown;
     public int MaxBulletCount = 20;
 
+    private bool stillReload = false; // reload status
     public int CurrentBulletCount // bullet system
     {
         get { return currentBulletCount; }
@@ -49,7 +50,7 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
-        currentBulletCount = MaxBulletCount; // Assign MaxBulletCount with currentBulletCount to avoid gun always reload after 1 shot
+        currentBulletCount = MaxBulletCount; // Assign MaxBulletCount with currentBulletCount to avoid newly picked up weapon always reload after 1 shot
     }
     void Update()
     {
@@ -65,6 +66,7 @@ public class Weapon : MonoBehaviour
         if (ReloadCooldown.CurrentProgress == Cooldown.Progress.Finished)
         {
             currentBulletCount = MaxBulletCount;
+            stillReload = false;
         }
 
         ReloadCooldown.CurrentProgress = Cooldown.Progress.Ready; //if weapon is finish shooting, ready to fire next time user shoots.
@@ -147,15 +149,16 @@ public class Weapon : MonoBehaviour
             ReloadPart();
         }
     }
-    public void MidReload()
+    public void MidReload() // When player presses R button
     {
-        if (currentBulletCount != MaxBulletCount)
+        if (currentBulletCount != MaxBulletCount && stillReload == false) // if bullet is empty and also there is no current reload in progress
         {
+            stillReload = true;
             ReloadPart();
         }
     }
 
-    void ReloadPart()
+    void ReloadPart() // The part where reload sound plays and start reload cooldown
     {
         foreach (var feedback in ReloadFeedbacks)
         {

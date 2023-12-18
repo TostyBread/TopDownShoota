@@ -15,7 +15,16 @@ public class PlayerWeaponHandler : WeaponHand
             _tryShoot = false;
 
         if (Input.GetKeyDown(KeyCode.R)) // Reloading test
-            CurrentWeapon.MidReload();
+        {
+            if (CurrentWeapon == null)
+            {
+                return;
+            }
+            else
+            {
+                CurrentWeapon.MidReload();
+            }
+        }
     }
 
     public Vector2 AimPosition()
