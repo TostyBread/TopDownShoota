@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c29d911e64005a4984d3b9270142dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 6
+  MaxHealth: 5
   Invulnerable:
     CurrentProgress: 0
     Duration: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
     m_Bits: 1280
   IgnoreLayerMask:
     serializedVersion: 2
-    m_Bits: 3776
+    m_Bits: 2752
 --- !u!1 &3535717563236051367
 GameObject:
   m_ObjectHideFlags: 0

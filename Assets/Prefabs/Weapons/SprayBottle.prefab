@@ -53,7 +53,7 @@ MonoBehaviour:
   _timer: 0
   BurstFireAmount: 3
   BurstFireInterval: 0.1
-  ProjectileCount: 10
+  ProjectileCount: 12
   Projectile: {fileID: 5804207856367338741, guid: 5f13b023889ab9244927dd5e60a5d71f, type: 3}
   SpawnPos: {fileID: 4349101007528642823}
   ShootInterval:
@@ -66,7 +66,7 @@ MonoBehaviour:
   ReloadCooldown:
     CurrentProgress: 0
     Duration: 1.5
-  MaxBulletCount: 10
+  MaxBulletCount: 12
 --- !u!1 &6181086584316374060
 GameObject:
   m_ObjectHideFlags: 0

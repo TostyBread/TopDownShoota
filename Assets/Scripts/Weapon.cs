@@ -60,16 +60,18 @@ public class Weapon : MonoBehaviour
 
     private void UpdateReloadCooldown() // Reload cooldown
     {
-        if (ReloadCooldown.CurrentProgress != Cooldown.Progress.Finished) //if weapon is not finish shooting, return
-            return;
+        if (ReloadCooldown.CurrentProgress != Cooldown.Progress.Finished) //if weapon is not finish reloading, return
+            return; 
+        
 
         if (ReloadCooldown.CurrentProgress == Cooldown.Progress.Finished)
         {
-            currentBulletCount = MaxBulletCount;
             stillReload = false;
+            currentBulletCount = MaxBulletCount;
         }
 
-        ReloadCooldown.CurrentProgress = Cooldown.Progress.Ready; //if weapon is finish shooting, ready to fire next time user shoots.
+        ReloadCooldown.CurrentProgress = Cooldown.Progress.Ready; //if weapon is finish reloaded, ready to fire next time user shoots.
+        stillReload = false;
     }
 
     private void UpdateShootCooldown() // Shoot cooldown
@@ -146,6 +148,7 @@ public class Weapon : MonoBehaviour
 
         if (currentBulletCount <= 0 && !ReloadCooldown.IsOnCooldown) // when empty, reload timer will start
         {
+            stillReload = true;
             ReloadPart();
         }
     }

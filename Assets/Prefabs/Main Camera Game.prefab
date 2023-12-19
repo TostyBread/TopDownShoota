@@ -1026,7 +1026,7 @@ MonoBehaviour:
   DifficultyRate: 0.1
   Cats:
   - {fileID: 2449275477550836665, guid: 71a27f99353f7a54abc5d250f2c1223c, type: 3}
-  - {fileID: 1759685946340697104, guid: f99034dd354f7db4fbce2104b3568de3, type: 3}
+  - {fileID: 6287076461962512818, guid: f99034dd354f7db4fbce2104b3568de3, type: 3}
   MinX: -25
   MaxX: 25
   MinY: -15

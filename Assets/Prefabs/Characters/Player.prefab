@@ -143,7 +143,7 @@ MonoBehaviour:
   MaxHealth: 10
   Invulnerable:
     CurrentProgress: 0
-    Duration: 1
+    Duration: 1.5
 --- !u!1 &6381442574288230211
 GameObject:
   m_ObjectHideFlags: 0

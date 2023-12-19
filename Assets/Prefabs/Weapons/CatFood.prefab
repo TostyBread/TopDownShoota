@@ -65,7 +65,7 @@ MonoBehaviour:
   - {fileID: 6130160757548461430, guid: d4c9b28b38479b9488aba76cb4c0e51e, type: 3}
   ReloadCooldown:
     CurrentProgress: 0
-    Duration: 7.5
+    Duration: 7.3
   MaxBulletCount: 1
 --- !u!1 &4396557996078395006
 GameObject:
