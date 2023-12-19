@@ -64,12 +64,10 @@ public class GameRecorderManager : MonoBehaviour
             SaveHighScore();
             UpdateUI();
             GameOverScene();
-            Cursor.visible = true; // renable mouse cursor after death
         }
         else
         {
             GameOverScene();
-            Cursor.visible = true; // renable mouse cursor after death
         }
         timer = 0f;
 

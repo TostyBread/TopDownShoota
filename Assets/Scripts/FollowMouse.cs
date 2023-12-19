@@ -21,7 +21,13 @@ public class FollowMouse : MonoBehaviour
 
         _crosshair.position = Input.mousePosition; // crosshair will now follow the mouse
 
-        if(Cursor.visible) // if mouse cursor visible, it will hide
+        if (GameObject.FindWithTag("Player") == null)
+        {
+            Cursor.visible = true;
+        }
+        else
+        {
             Cursor.visible = false;
+        }
     }
 }
