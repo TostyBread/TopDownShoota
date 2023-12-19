@@ -41,10 +41,17 @@ WarehouseBattlemap - Drawn by Kenji
 Main Menu background - Drawn by Kenji
 
 
-Version 1.1 [made by Tan Kenji, aka Elite Spec-Ops Alan]
+Version 1.1.2 [made by Tan Kenji, aka Elite Spec-Ops Alan]
 -- Known issues (And may not be fix)--
 
 - Enemy are stupid, they get suck on obstacles and dont know how to maneuver around (A: This project doesn't plan to tackle smart AI, its a beginner game)
 - No settings (A: There is no graphics settings, audio, or typical game settings. This is a beginner project, so its not important as most of the things are settled during making of this game)
 - No pause menu (A: Sadly, my time is out of reach for now, so a pause menu is not possible for this project. Plus it's not really important for such a small project tbh)
 - No restart button after game over? (A: Well i technically can do that, but again, time constrains and design purpose.)
+
+-- Fixed issues --
+
+- Aspect ration locked at 1080p, anything more than that will cause UI issue.
+- Highest survived time added alongside reset button.
+- mouse cursor didn't show up after player died, causing it unable to continue playing game.
+- Balancing issue regarding player able to outrun cats easily.
